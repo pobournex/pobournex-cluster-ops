@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homepage
+  namespace: homepage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: homepage
+  template:
+    metadata:
+      labels:
+        app: homepage
+    spec:
+      containers:
+      - name: homepage
+        image: ghcr.io/gethomepage/homepage:latest
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+        # These mounts must match the keys in your 01-configmap.yaml
+        - name: config-volume
+          mountPath: /app/config/settings.yaml
+          subPath: settings.yaml
+        - name: config-volume
+          mountPath: /app/config/services.yaml
+          subPath: services.yaml
+        - name: config-volume
+          mountPath: /app/config/bookmarks.yaml
+          subPath: bookmarks.yaml
+        - name: config-volume
+          mountPath: /app/config/widgets.yaml
+          subPath: widgets.yaml
+        - name: config-volume
+          mountPath: /app/config/kubernetes.yaml
+          subPath: kubernetes.yaml
+      volumes:
+      - name: config-volume
+        configMap:
+          name: homepage-config # This connects to the name in your 01-configmap.yaml

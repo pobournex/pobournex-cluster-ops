@@ -7,19 +7,22 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: homepage
+      app.kubernetes.io/name: homepage # Fixed label
   template:
     metadata:
       labels:
-        app: homepage
+        app.kubernetes.io/name: homepage # Fixed label
     spec:
       containers:
       - name: homepage
         image: ghcr.io/gethomepage/homepage:latest
         ports:
         - containerPort: 3000
+          name: http
+        env:
+        - name: HOMEPAGE_ALLOWED_HOSTS
+          value: "home.pobournex,192.168.40.152"
         volumeMounts:
-        # These mounts must match the keys in your 01-configmap.yaml
         - name: config-volume
           mountPath: /app/config/settings.yaml
           subPath: settings.yaml
@@ -38,4 +41,4 @@ spec:
       volumes:
       - name: config-volume
         configMap:
-          name: homepage-config # This connects to the name in your 01-configmap.yaml
+          name: homepage-config

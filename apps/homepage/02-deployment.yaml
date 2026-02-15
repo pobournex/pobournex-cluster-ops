@@ -38,6 +38,17 @@ spec:
         - name: config-volume
           mountPath: /app/config/kubernetes.yaml
           subPath: kubernetes.yaml
+      # ... (metadata and selector above)
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: homepage
+    spec:
+      serviceAccountName: homepage-sa  # <--- Add this line here
+      containers:
+      - name: homepage
+        image: ghcr.io/gethomepage/homepage:latest
+# ... (rest of the file)
       volumes:
       - name: config-volume
         configMap:

@@ -54,13 +54,13 @@ data:
             href: https://nextcloud.pobournex.com
             description: Private Cloud Storage
     - Services:
-      - Uptime Kuma:
-        icon: uptime-kuma
-        href: http://192.168.40.103
-        description: Infrastructure Monitoring
+       - Uptime Kuma:
+         icon: uptime-kuma
+         href: http://192.168.40.103
+         description: Infrastructure Monitoring
         # Optional: If you want a live status widget (green/red dot)
-        widget:
-          type: uptimekuma
+         widget:
+           type: uptimekuma
           url: http://192.168.40.103
 
   # 3. Quick Links

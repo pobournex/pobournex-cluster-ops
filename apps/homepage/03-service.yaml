@@ -1,11 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: homepage-service
+  name: homepage  # Ensure this is just "homepage"
   namespace: homepage
+  annotations:
+    metallb.universe.tf/loadBalancerIPs: 192.168.40.152
 spec:
+  type: LoadBalancer
   ports:
   - port: 80
     targetPort: 3000
+    protocol: TCP
+    name: http
   selector:
     app: homepage

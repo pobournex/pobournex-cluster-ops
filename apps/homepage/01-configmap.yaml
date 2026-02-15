@@ -29,10 +29,22 @@ data:
             icon: traefik.png
             href: https://traefik.pobournex.com
             description: Reverse Proxy & Ingress
+              # - ArgoCD:
+              # icon: argocd.png
+              # href: https://argocd.pobournex.com
+              # description: GitOps Continuous Delivery
+
         - ArgoCD:
-            icon: argocd.png
+            icon: argocd   # <--- Change this to 'argocd' (no extension)
             href: https://argocd.pobournex.com
             description: GitOps Continuous Delivery
+
+  # Use your Argo IP
+            # If you have an 'api' section below, that's likely causing the 'API Error'
+            # widget:
+            #   type: argocd
+            #   url: http://192.168.40.150
+            #   password: yourpassword
         - Grafana:
             icon: grafana.png
             href: https://grafana.pobournex.com

@@ -2,7 +2,7 @@ apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: stirling-pdf-route
-  namespace: default
+  namespace: traefik  # <--- Change this to match Traefik's namespace
 spec:
   entryPoints:
     - web
@@ -11,4 +11,5 @@ spec:
       kind: Rule
       services:
         - name: stirling-pdf-service
+          namespace: default # <--- Explicitly tell Traefik the service is in default
           port: 80

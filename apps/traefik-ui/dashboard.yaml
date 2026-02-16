@@ -1,0 +1,14 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard
+  namespace: traefik # Traefik usually lives here; check yours with 'kubectl get pods -A'
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`traefik.pobournex`)
+      kind: Rule
+      services:
+        - name: api@internal
+          kind: TraefikService

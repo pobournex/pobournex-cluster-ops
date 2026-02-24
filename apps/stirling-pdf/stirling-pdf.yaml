@@ -1,8 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: stirling-pdf
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: stirling-pdf
-  namespace: default
+  namespace: stirling-pdf
 spec:
   replicas: 1
   selector:
@@ -18,28 +23,16 @@ spec:
         image: frooodle/s-pdf:latest
         ports:
         - containerPort: 8080
-        env:
-        - name: DOCKER_ENABLE_SECURITY
-          value: "false" # Set to true later if you want a login page
-        - name: INSTALL_BOOK_AND_ADVANCED_HTML_OPS
-          value: "true"
-        resources:
-          requests:
-            memory: "512Mi"
-            cpu: "200m"
-          limits:
-            memory: "1Gi"
-            cpu: "1000m"
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: stirling-pdf-service
-  namespace: default
+  namespace: stirling-pdf
 spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
   selector:
     app: stirling-pdf
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8080

@@ -35,6 +35,10 @@ The Miniflux PostgreSQL database uses a PersistentVolumeClaim (`local-path`), so
 
 Kubernetes (K3s) · Argo CD · MetalLB · ingress-nginx · Proxmox VE · YAML manifests
 
+## History
+
+The cluster and these Argo CD applications have been running since February 2026. This repository was republished in October 2026 with a fresh Git history, after credentials that were in early commits were rotated and moved into Kubernetes Secrets.
+
 ## Screenshots
 
 Argo CD showing all four applications Synced and Healthy:

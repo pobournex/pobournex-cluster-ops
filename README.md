@@ -41,6 +41,8 @@ Argo CD showing all four applications Synced and Healthy:
 
 ![Argo CD applications](docs/argocd-apps.png)
 
+The detailed views below use Miniflux as the example; the other apps follow the same pattern.
+
 Resource tree for the Miniflux app, including the PostgreSQL PersistentVolumeClaim:
 
 ![Miniflux resource tree in Argo CD](docs/miniflux-resource-tree.png)

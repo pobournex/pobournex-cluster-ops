@@ -37,4 +37,14 @@ Kubernetes (K3s) · Argo CD · MetalLB · ingress-nginx · Proxmox VE · YAML ma
 
 ## Screenshots
 
+Argo CD showing all four applications Synced and Healthy:
+
 ![Argo CD applications](docs/argocd-apps.png)
+
+Resource tree for the Miniflux app, including the PostgreSQL PersistentVolumeClaim:
+
+![Miniflux resource tree in Argo CD](docs/miniflux-resource-tree.png)
+
+The 3-node K3s cluster and the running Miniflux pods:
+
+![Cluster nodes and Miniflux pods](docs/cluster-nodes-pods.png)

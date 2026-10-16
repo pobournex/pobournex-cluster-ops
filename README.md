@@ -34,3 +34,7 @@ The Miniflux PostgreSQL database uses a PersistentVolumeClaim (`local-path`), so
 ## Stack
 
 Kubernetes (K3s) · Argo CD · MetalLB · ingress-nginx · Proxmox VE · YAML manifests
+
+## Screenshots
+
+![Argo CD applications](docs/argocd-apps.png)
